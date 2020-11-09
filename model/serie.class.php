@@ -7,7 +7,6 @@
         private $seasons;
 
         public function __construct(){ } 
-
         public function __destruct(){ } 
 
         public function getIdserie() {
@@ -50,18 +49,11 @@
             $this->seasons = $seasons;
         }
 
-
         public function __toString() {
           return "<br>Código: ".$this->idserie.
                  "<br>Nome: ".$this->name.
-                 "<br>Número de Episódios: ".$this->episodes.
-                 "<br>Email: ".$this->seasons;
+                 "<br>Episodios: ".$this->episodes.
+                 "<br>Temporadas: ".$this->seasons;
         }
-
-
-
     }
-
-
-
 ?>
