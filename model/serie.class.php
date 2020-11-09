@@ -31,7 +31,7 @@
         }
 
         public function setReleaseYear($releaseYear) {
-            $this->realeseYear = $releaseYear;
+            $this->releseYear = $releaseYear;
         }
 
         public function getEpisodes() {

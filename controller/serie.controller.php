@@ -11,22 +11,26 @@
             $releaseyear = $_POST['releaseYear'];
             $episodes = $_POST['episodes'];
             $seasons = $_POST['seasons'];
-            if(empty($name) || empty($releaseyear) || empty($episodes) || empty($seasons)) {
+            $director = $_POST['director'];
+            if(empty($name) || empty($releaseyear) || empty($episodes) || empty($seasons) || empty($director)) {
                 return 'Preencha os campos.';
             } else if(! Util::testRegex('/^[A-Za-zÀ-Úà-ú ]{2,50}$/',$name)) {
-                return 'Nome fora do padrão';
+                return 'Nome da série fora do padrão';
+            } else if(! Util::testRegex('/^[A-Za-zÀ-Úà-ú ]{2,30}$/',$director)) {
+                return 'Nome do diretor fora do padrão';
             } else if(! Util::testYear($releaseyear)) {
                 return 'Não é ano válido';
             } else if(! Util::testRegex('/^[0-9]{1,4}$/',$episodes)) {
-                return 'Não é um número de episódios';
+                return 'Não é um número de episódios válido';
             } else if(! Util::testRegex('/^[0-9]{1,2}$/',$seasons)) {
-                return 'Não é ';
+                return 'Não é um número de temporadas válido';
             } else {
                 $serie = new Serie();
                 $serie->setName($name);
                 $serie->setReleaseyear($releaseyear);
                 $serie->setEpisodes($episodes);
                 $serie->setSeasons($seasons);
+                $serie->setDirector($director);
                 //Aqui enviamos para o BANCO:
                 $serieDAO = new SerieDAO();
                 $SerieDAO->createSeries($serie);
@@ -61,11 +65,12 @@
             $serie->idSerie = $_POST['idserie'];
             $serie->name = $_POST['name'];
             $serie->releaseYear = $_POST['releaseYear'];
-            $serie->email = $_POST['txtemail'];
-            $serie->mensagem = $_POST['txtmensagem'];
+            $serie->episodes = $_POST['episodes'];
+            $serie->seasons = $_POST['seasons'];
+            $serie->director = $_POST['director'];
             $SerieDAO = new SerieDAO();
             $SerieDAO->updateSerie($serie);
-            header('location:../view/buscarcontatos.php');
+            header('location:../view/buscarserie.php');
         break;
         default:
             echo "Errou o nome do case!!!";

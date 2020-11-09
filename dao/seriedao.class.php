@@ -13,11 +13,12 @@
 
         public function createSeries($serie) {
             try {
-                $stat = $this->conexao->prepare("INSERT INTO contato (idserie,name,releaseyear,episodes,episodes) VALUES(NULL,?,?,?,?)");
+                $stat = $this->conexao->prepare("INSERT INTO contato (idserie,name,releaseyear,episodes,seasons,director) VALUES(NULL,?,?,?,?,?)");
                 $stat->bindValue(1,$serie->getName());
-        	    $stat->bindValue(2,$serie->getReleaseyear());
+        	    $stat->bindValue(2,$serie->getReleaseYear());
         	    $stat->bindValue(3,$serie->getEpisodes());
     		    $stat->bindValue(4,$serie->getSeasons());
+    		    $stat->bindValue(5,$serie->getDirector());
                 $stat->execute();
 
                 return "Série Cadastrado";
@@ -39,10 +40,10 @@
             }
         }
 
-        public function deleteSeries($idserie){
+        public function deleteSeries($idSerie){
             try {
                 $stat = $this->conexao->prepare("DELETE FROM series WHERE idserie=?");
-                $stat->bindValue(1,$idserie);
+                $stat->bindValue(1,$idSerie);
                 $stat->execute();
 
                 $this->conexao = null;
@@ -66,13 +67,14 @@
         //Função para alterar contato:
         public function updateSerie($serie) {
             try {
-                $stat = $this->conexao->prepare("UPDATE serie SET name = ?, releseyear = ?, episodes = ?, seasons = ? WHERE idserie = ?");
+                $stat = $this->conexao->prepare("UPDATE serie SET name = ?, releseyear = ?, episodes = ?, seasons = ?, director = ? WHERE idserie = ?");
 
                 $stat->bindValue(1,$serie->getName());
-        	    $stat->bindValue(2,$serie->getReleaseyear());
+        	    $stat->bindValue(2,$serie->getReleaseYear());
         	    $stat->bindValue(3,$serie->getEpisodes());
     		    $stat->bindValue(4,$serie->getSeasons());
-                $stat->bindValue(5,$serie->getIdserie());
+    		    $stat->bindValue(5,$serie->getDirector());
+                $stat->bindValue(6,$serie->getIdSerie());
                 $stat->execute();
                 $this->conexao = null;
 
