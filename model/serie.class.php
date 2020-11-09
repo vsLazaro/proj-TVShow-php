@@ -6,9 +6,9 @@
         private $episodes;
         private $seasons;
 
-        public function __construct(){
+        public function __construct(){ } 
 
-        }
+        public function __destruct(){ } 
 
         public function getIdserie() {
             return $this->idserie;
@@ -16,7 +16,6 @@
 
         public function setIdserie($idserie) {
             $this->idserie = $idserie;
-            return $this;
         }
 
         public function getName() {
@@ -25,7 +24,6 @@
 
         public function setName($name) {
             $this->name = $name;
-            return $this;
         }
 
         public function getRealeaseyear() {
@@ -34,7 +32,6 @@
 
         public function setRealeaseyear($realeaseyear) {
             $this->realeaseyear = $realeaseyear;
-            return $this;
         }
 
         public function getEpisodes() {
@@ -43,7 +40,6 @@
 
         public function setEpisodes($episodes) {
             $this->episodes = $episodes;
-            return $this;
         }
 
         public function getSeasons() {
@@ -52,15 +48,14 @@
 
         public function setSeasons($seasons) {
             $this->seasons = $seasons;
-            return $this;
         }
 
 
         public function __toString() {
           return "<br>Código: ".$this->idserie.
                  "<br>Nome: ".$this->name.
-                 "<br>Telefone: ".$this->$episodes.
-                 "<br>E-mail: ".$this->$seasons;
+                 "<br>Número de Episódios: ".$this->episodes.
+                 "<br>Email: ".$this->seasons;
         }
 
 

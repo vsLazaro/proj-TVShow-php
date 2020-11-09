@@ -4,7 +4,6 @@
       private static $instance = null;
 
       public function __construct($dsn,$user,$pass) {
-
           parent::__construct($dsn,$user,$pass);
       }
 
