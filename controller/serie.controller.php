@@ -6,25 +6,25 @@
     include '../dao/seriedao.class.php';
 
     switch($_GET['op']) {
-        case 'cadastrar': 
+        case 'cadastrar':
             $name = $_POST['name'];
             $releaseyear = $_POST['releaseYear'];
             $episodes = $_POST['episodes'];
             $seasons = $_POST['seasons'];
             if(empty($name) || empty($releaseyear) || empty($episodes) || empty($seasons)) {
                 return 'Preencha os campos.';
-            } else if(! Util::testRegex('/^[A-Za-zÀ-Úà-ú ]{2,40}$/',$name)) {
+            } else if(! Util::testRegex('/^[A-Za-zÀ-Úà-ú ]{2,50}$/',$name)) {
                 return 'Nome fora do padrão';
             } else if(! Util::testYear($releaseyear)) {
                 return 'Não é ano válido';
-            } else if(! Util::testRegex('/^[0-9]{8,20}$/',$episodes)) {
+            } else if(! Util::testRegex('/^[0-9]{1,4}$/',$episodes)) {
                 return 'Não é um número de episódios';
-            } else if(! Util::testRegex('/^[0-9]{8,20}$/',$seasons)) {
+            } else if(! Util::testRegex('/^[0-9]{1,2}$/',$seasons)) {
                 return 'Não é ';
             } else {
                 $serie = new Serie();
                 $serie->setName($name);
-                $serie->setRealeaseyear($realeaseyear);
+                $serie->setReleaseyear($releaseyear);
                 $serie->setEpisodes($episodes);
                 $serie->setSeasons($seasons);
                 //Aqui enviamos para o BANCO:
