@@ -1,7 +1,7 @@
 <?php
     session_start();
     require '../util/util.class.php';
-    require_once '../model/PHPMailerAutoload.php';
+    require_once '../util/PHPMailerAutoload.php';
     include '../model/serie.class.php';
     include '../dao/seriedao.class.php';
 

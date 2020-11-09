@@ -26,7 +26,6 @@
                 Em construção! Uma aplicação Produzida pelos alunos Camis e Lázaro.
             </p>
         </section>
-        
     </main>
 </body>
 </html>
