@@ -46,7 +46,7 @@
                 $mail->SMTPSecure = false; // Define se é utilizado SSL/TLS - Mantenha o valor "false"
                 $mail->SMTPAutoTLS = false; // Define se, por padrão, será utilizado TLS - Mantenha o valor "false"
                 $mail->Username = 'contato@oraza.com.br'; // Conta de email existente e ativa em seu domínio
-                $mail->Password = 'king2020'; // Senha da sua conta de email
+                $mail->Password = '13042001L'; // Senha da sua conta de email
 
                 // Dados Remetente
                 $mail->Sender = "contato@oraza.com.br"; // Conta de email existente e ativa em seu domínio
