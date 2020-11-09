@@ -2,6 +2,7 @@
     class Serie {
         private $idSerie;
         private $name;
+        private $email;
         private $releaseYear;
         private $episodes;
         private $seasons;
@@ -24,6 +25,14 @@
 
         public function setName($name) {
             $this->name = $name;
+        }
+
+        public function getEmail() {
+            return $this->email;
+        }
+
+        public function setEmail($email) {
+            $this->email = $email;
         }
 
         public function getReleaseYear() {
@@ -61,6 +70,7 @@
         public function __toString() {
           return "<br>Código: ".$this->idSerie.
                  "<br>Nome: ".$this->name.
+                 "<br>E-mail: ".$this->email.
                  "<br>Ano Lançamento: ".$this->releaseYear.
                  "<br>Episodios: ".$this->episodes.
                  "<br>Temporadas: ".$this->seasons;
