@@ -59,8 +59,8 @@
         public function __toString() {
           return "<br>Código: ".$this->idserie.
                  "<br>Nome: ".$this->name.
-                 "<br>Telefone: ".$this->$episodes.
-                 "<br>E-mail: ".$this->$seasons;
+                 "<br>Episodios: ".$this->$episodes.
+                 "<br>Temporadas: ".$this->$seasons;
         }
 
 

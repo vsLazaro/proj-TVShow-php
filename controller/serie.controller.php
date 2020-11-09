@@ -42,11 +42,11 @@
 
                             $realeaseyear = $_POST['nrealeaseyear'];
 
-                            $amountepisode = $_POST['namountepisode'];
+                            $episodes = $_POST['namountepisode'];
 
-                            $amountseason = $_POST['namountseason'];
+                            $seasons = $_POST['namountseason'];
 
-                            if(empty($name) || empty($realeaseyear) || empty($amountepisode) || empty($amountseason)) {
+                            if(empty($name) || empty($realeaseyear) || empty($episodes) || empty($seasons)) {
 
                                 echo 'Preencha os campos.';
 
@@ -58,11 +58,11 @@
 
                                 echo 'Telefone fora do padrão';
 
-                            } else if(!$util->testRegex('/^[0-9]{8,20}$/',$amountepisode)) {
+                            } else if(!$util->testRegex('/^[0-9]{8,20}$/',$episodes)) {
 
                                 echo 'E-mail fora de padrão';
 
-                            } else if(!$util->testRegex('/^[0-9]{8,20}$/',$amountseason)) {
+                            } else if(!$util->testRegex('/^[0-9]{8,20}$/',$seasons)) {
 
                                 echo 'E-mail fora de padrão';
 
@@ -74,9 +74,9 @@
 
                             $serie->setRealeaseyear($realeaseyear);
 
-                            $serie->setAmountepisode($amountepisode);
+                            $serie->setAmountepisode($episodes);
 
-                            $serie->setAmountseason($amountseason);
+                            $serie->setAmountseason($seasons);
 
 
                             //Aqui enviamos para o BANCO:
@@ -135,7 +135,7 @@
 
                             $serie = new Serie();
 
-                            $serie->idcontato = $_POST['txtidcontato'];
+                            $serie->setIdserie($_POST['txtidcontato']);
 
                             $serie->nome = $_POST['txtnome'];
 
