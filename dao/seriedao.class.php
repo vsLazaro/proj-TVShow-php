@@ -13,7 +13,7 @@
 
         public function createSeries($serie) {
             try {
-                $stat = $this->conexao->prepare("INSERT INTO `series`(`idserie`, `name`, `releaseyear`, `episodes`, `seasons`, `director`) VALUES(NULL,?,?,?,?,?)");
+                $stat = $this->conexao->prepare("INSERT INTO `series`(`name`, `releaseyear`, `episodes`, `seasons`, `director`) VALUES(?,?,?,?,?)");
                 $stat->bindValue(1,$serie->getName());
         	    $stat->bindValue(2,$serie->getReleaseYear());
         	    $stat->bindValue(3,$serie->getEpisodes());

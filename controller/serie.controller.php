@@ -24,6 +24,8 @@
                     $newSerie->getSeasons(), 
                     $newSerie->getDirector(), 
                     $email);
+
+                    echo $newSerie;
                 // header('location:../view/confirmacadastro.html');
             }
         break;
@@ -72,8 +74,8 @@
             return 'Email fora do padrão';
         } else if(! Util::testRegex('/^[A-Za-zÀ-Úà-ú ]{2,30}$/',$director)) {
             return 'Nome do diretor fora do padrão';
-        } else if(! Util::testYear($releaseyear)) {
-            return 'Não é ano válido';
+        // } else if(! Util::testYear($releaseyear)) {
+        //     return 'Não é ano válido';
         } else if(! Util::testRegex('/^[0-9]{1,4}$/',$episodes)) {
             return 'Não é um número de episódios válido';
         } else if(! Util::testRegex('/^[0-9]{1,2}$/',$seasons)) {
