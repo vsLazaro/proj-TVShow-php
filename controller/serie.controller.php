@@ -62,15 +62,15 @@
                 $mail->Subject  = "Série Cadastrada com sucesso"; // Assunto da mensagem
                 $mail->Body .= " Nome da serie: ".$name."
                "; // Texto da mensagem
-                $mail->Body .= " Seu E-mail: ".$email."
+                $mail->Body .= " <br>Seu E-mail: ".$email."
                "; // Texto da mensagem
-                $mail->Body .= " Ano lançamento: ".$releaseyear."
+                $mail->Body .= " <br>Ano lançamento: ".$releaseyear."
                "; // Texto da mensagem
-                $mail->Body .= " Número de episódios: ".$episodes."
+                $mail->Body .= " <br>Número de episódios: ".$episodes."
                "; // Texto da mensagem
-                $mail->Body .= " Número de temporadas: ".$seasons."
+                $mail->Body .= " <br>Número de temporadas: ".$seasons."
                "; // Texto da mensagem
-                $mail->Body .= " Nome do diretor: ".$director."
+                $mail->Body .= " <br>Nome do diretor: ".$director."
                "; // Texto da mensagem
                 // ENVIO DO EMAIL
                 $enviado = $mail->Send();
