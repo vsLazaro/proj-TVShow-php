@@ -6,6 +6,7 @@
 		}
 
 		public static function testYear($year) {
+			//Laz faz a lógica mágica com o date :P 
 			return true;
 		}
 	}
