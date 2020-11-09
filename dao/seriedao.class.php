@@ -21,15 +21,15 @@
 
             try {
 
-                $stat = $this->conexao->prepare("INSERT INTO contato (idserie,name,realeaseyear,amountepisode,amountseason) VALUES(NULL,?,?,?,?)");
+                $stat = $this->conexao->prepare("INSERT INTO contato (idserie,name,realeaseyear,episodes,seasons) VALUES(NULL,?,?,?,?)") ;
 
                 $stat->bindValue(1,$serie->getName());
 
         	    $stat->bindValue(2,$serie->getRealeaseyear());
 
-        	    $stat->bindValue(3,$serie->getAmountepisode());
+        	    $stat->bindValue(3,$serie->getEpisode());
 
-    		    $stat->bindValue(4,$serie->getAmountseason());
+    		    $stat->bindValue(4,$serie->getSeasons());
 
                 $stat->execute();
 
@@ -105,15 +105,15 @@
 
         public function updateSerie($serie) {
             try {
-                $stat = $this->conexao->prepare("UPDATE serie SET name = ?, realeaseyear = ?, amountepisode = ?, amountseason = ? WHERE idserie = ?");
+                $stat = $this->conexao->prepare("UPDATE serie SET name = ?, realeaseyear = ?, episodes = ?, seasons = ? WHERE idserie = ?");
 
                 $stat->bindValue(1,$serie->getName());
 
         	    $stat->bindValue(2,$serie->getRealeaseyear());
 
-        	    $stat->bindValue(3,$serie->getAmountepisode());
+        	    $stat->bindValue(3,$serie->getEpisodes());
 
-    		    $stat->bindValue(4,$serie->getAmountseason());
+    		    $stat->bindValue(4,$serie->getSeasons());
 
                 $stat->bindValue(5,$serie->getIdserie());
 
