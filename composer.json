@@ -1,0 +1,14 @@
+{
+    "name": "lazar/projetofinal",
+    "description": "Projeto final php",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Lazaro e Camila",
+            "email": "lazaromacielv@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
