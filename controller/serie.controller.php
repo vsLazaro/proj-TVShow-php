@@ -25,8 +25,7 @@
                     $newSerie->getDirector(), 
                     $email);
 
-                    echo $newSerie;
-                // header('location:../view/confirmacadastro.html');
+                header('location:../view/confirmacadastro.html');
             }
         break;
 
