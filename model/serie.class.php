@@ -1,8 +1,8 @@
 <?php
     class Serie {
-        private $idSerie;
+        private $idserie;
         private $name;
-        private $releaseYear;
+        private $releaseyear;
         private $episodes;
         private $seasons;
         private $director;
@@ -11,11 +11,11 @@
         public function __destruct(){ }
 
         public function getIdSerie() {
-            return $this->idSerie;
+            return $this->idserie;
         }
 
-        public function setIdSerie($idSerie) {
-            $this->idSerie = $idSerie;
+        public function setIdSerie($idserie) {
+            $this->idserie = $idserie;
         }
 
         public function getName() {
@@ -27,11 +27,11 @@
         }
 
         public function getReleaseYear() {
-            return $this->releaseYear;
+            return $this->releaseyear;
         }
 
-        public function setReleaseYear($releaseYear) {
-            $this->releaseYear = $releaseYear;
+        public function setReleaseYear($releaseyear) {
+            $this->releaseyear = $releaseyear;
         }
 
         public function getEpisodes() {
@@ -59,9 +59,9 @@
         }
 
         public function __toString() {
-          return "<br>Código: ".$this->idSerie.
+          return "<br>Código: ".$this->idserie.
                  "<br>Nome: ".$this->name.
-                 "<br>Ano Lançamento: ".$this->releaseYear.
+                 "<br>Ano Lançamento: ".$this->releaseyear.
                  "<br>Episodios: ".$this->episodes.
                  "<br>Temporadas: ".$this->seasons.
                  "<br>Diretor: ".$this->director;
