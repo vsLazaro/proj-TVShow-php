@@ -25,14 +25,13 @@
             } catch(PDOException $error) {
                 return "Erro ao cadastrar série. ".$error;
             }
-
         }
 
         public function readSeries() {
             try {
                 $stat = $this->conexao->query("SELECT * FROM series");
                 $array = array();
-                $array = $stat->fetchAll(PDO::FETCH_CLASS,'Series');
+                $array = $stat->fetchAll(PDO::FETCH_CLASS,'Serie');
                 $this->conexao = null;
                 return $array;
             } catch(PDOException $error) {
