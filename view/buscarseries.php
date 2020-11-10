@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
@@ -25,14 +26,11 @@
         <section class="container">
             <h2>Buscar Série</h2>
             <?php
-                include '../dao/seriedao.class.php';
-                include '../model/serie.class.php';
+            include '../dao/seriedao.class.php';
+            include '../model/serie.class.php';
 
-                $serieDAO = new SerieDAO();
-                $series = $serieDAO->readSeries();
-
-                $dados = implode("<br>",$series);
-                echo $dados;
+            $serieDAO = new SerieDAO();
+            $series = $serieDAO->readSeries();
 
             ?>
             <table class="table table-striped table-hover">
@@ -59,11 +57,11 @@
                         echo "<td>" . $serie->getSeasons() . "</td>";
                         echo "<td>" . $serie->getDirector() . "</td>";
                         echo "<td>
-                              <a href='#'>
-                                <img src='../img/edita.png' alt='Icone Edição'>
+                              <a href='../view/alterarserie.php?idserie=$idSerie'>
+                                <i class='material-icons'>create</i>
                               </a>&nbsp;&nbsp;
                               <a href='../controller/serie.controller.php?op=deletar&idserie=$idSerie'>
-                                <img src='../img/exclui.png' alt='Icone Excluir'>
+                                <i class='material-icons'>delete</i>
                               </a>
                             </td>";
                         echo "</tr>";

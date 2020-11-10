@@ -32,7 +32,7 @@
         case 'deletar':
             $serieDAO = new SerieDAO();
             $serieDAO->deleteSeries($_REQUEST['idserie']);
-            header('location:../view/buscarserie.php');
+            header('location:../view/buscarseries.php');
         break;
 
         case 'alterar':
