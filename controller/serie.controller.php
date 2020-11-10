@@ -53,10 +53,9 @@
 
         case 'confirmaalteracao':
             $serie = seriesAtribuition();
-            echo $serie;
 
             $SerieDAO = new SerieDAO();
-            echo $SerieDAO->updateSerie($serie);
+            $SerieDAO->updateSerie($serie);
             
             header('location:../view/buscarseries.php');
         break;
