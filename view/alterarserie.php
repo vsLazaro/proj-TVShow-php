@@ -1,5 +1,5 @@
 <?php
-session_start();
+    session_start();
 ?>
 <html lang="pt-br">
 
@@ -36,7 +36,6 @@ session_start();
                 $series = array();
                 //pegar o resultado que está na variável
                 $series = unserialize($_SESSION['series']);
-                // $thisSerie = $series[0];
                 $thisSerie = $series[0];
             } else {
                 echo "deu ruim";
@@ -66,13 +65,9 @@ session_start();
                     <input type="text" name="director" placeholder="Diretor" value="<?php echo $thisSerie->getDirector() ?>" class="">
                     <label for="director">Diretor</label>
                 </div>
-                <div>
-                    <input type="email" name="email" placeholder="E-mail" class="">
-                    <label>Por favor insira o seu e-mail, para que possamos confirmar pra você que a série foi alterada </label>
-                </div>
                 <!--fim da sessão -->
                 <?php
-                unset($_SESSION['series']);
+                    unset($_SESSION['series']);
                 ?>
                 <button type="reset" name="limpa" value="Limpar" class="button orange">Limpar!</button>
                 <button type="submit" name="altera" value="Alterar" class="button green">Alterar!</button>
