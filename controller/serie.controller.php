@@ -58,7 +58,7 @@
             $SerieDAO = new SerieDAO();
             echo $SerieDAO->updateSerie($serie);
             
-            // header('location:../view/buscarseries.php');
+            header('location:../view/buscarseries.php');
         break;
         default:
             header('location:../404.html');
