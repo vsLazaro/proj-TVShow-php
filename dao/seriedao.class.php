@@ -65,7 +65,7 @@
 
         public function updateSerie($serie) {
             try {
-                $stat = $this->conexao->prepare("UPDATE serie SET name = ?, releseyear = ?, episodes = ?, seasons = ?, director = ? WHERE idserie = ?");
+                $stat = $this->conexao->prepare("UPDATE series SET name = ?, releaseyear = ?, episodes = ?, seasons = ?, director = ? WHERE idserie = ?");
 
                 $stat->bindValue(1,$serie->getName());
         	    $stat->bindValue(2,$serie->getReleaseYear());

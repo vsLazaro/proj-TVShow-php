@@ -68,7 +68,7 @@ session_start();
                 </div>
                 <div>
                     <input type="email" name="email" placeholder="E-mail" class="">
-                    <label>Por favor insira o seu e-mail, para que possamos confirmar pra você que a série foi cadastrada </label>
+                    <label>Por favor insira o seu e-mail, para que possamos confirmar pra você que a série foi alterada </label>
                 </div>
                 <!--fim da sessão -->
                 <?php

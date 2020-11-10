@@ -51,14 +51,14 @@
             header("location:../view/alterarserie.php");
         break;
 
-        case 'confirmaralteracao':
+        case 'confirmaalteracao':
             $serie = seriesAtribuition();
-            $serie->idSerie = $_POST['idserie'];
+            echo $serie;
 
             $SerieDAO = new SerieDAO();
-            $SerieDAO->updateSerie($serie);
+            echo $SerieDAO->updateSerie($serie);
             
-            header('location:../view/buscarserie.php');
+            // header('location:../view/buscarseries.php');
         break;
         default:
             header('location:../404.html');
@@ -85,6 +85,7 @@
     }
 
     function seriesAtribuition() {
+        $idserie = $_POST['idserie'];
         $name = $_POST['name'];
         $email = $_POST['email'];
         $releaseyear = $_POST['releaseyear'];
@@ -99,6 +100,7 @@
             echo $verification;
             $serie = null;
         } else {
+            $serie->setIdSerie($idserie);
             $serie->setName($name);
             $serie->setReleaseyear($releaseyear);
             $serie->setEpisodes($episodes);
