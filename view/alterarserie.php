@@ -38,7 +38,7 @@
                 $series = unserialize($_SESSION['series']);
                 $thisSerie = $series[0];
             } else {
-                echo "deu ruim";
+                echo "Volte e tente novamente!";
             }
             ?>
             <form action="../controller/serie.controller.php?op=confirmaalteracao" method="post">
@@ -46,23 +46,23 @@
                     <input type="number" name="idserie" value="<?php echo $thisSerie->getIdSerie() ?>" readonly>
                 </div>
                 <div>
-                    <input type="text" name="name" placeholder="Nome da série" value="<?php echo $thisSerie->getName() ?>" class="">
+                    <input type="text" name="name" placeholder="Nome da série" value="<?php echo $thisSerie->getName() ?>" class="" pattern="[A-Za-zÀ-Úà-ú ]{2,50}" required>
                     <label for="name">Nome</label>
                 </div>
                 <div>
-                    <input type="year" name="releaseyear" placeholder="Ano de Lançamento" value="<?php echo $thisSerie->getReleaseYear() ?>" class="">
+                    <input type="year" name="releaseyear" placeholder="Ano de Lançamento" value="<?php echo $thisSerie->getReleaseYear() ?>" class="" required>
                     <label for="releaseYear">Ano de Lançamento</label>
                 </div>
                 <div>
-                    <input type="number" name="episodes" placeholder="Número de Episódios" value="<?php echo $thisSerie->getEpisodes() ?>" class="">
+                    <input type="number" name="episodes" placeholder="Número de Episódios" value="<?php echo $thisSerie->getEpisodes() ?>" class="" required pattern="[0-9]{1,4}">
                     <label for="episodes">Número de Episódios</label>
                 </div>
                 <div>
-                    <input type="text" name="seasons" placeholder="Número de temporadas" value="<?php echo $thisSerie->getSeasons() ?>" class="">
+                    <input type="text" name="seasons" placeholder="Número de temporadas" value="<?php echo $thisSerie->getSeasons() ?>" class="" required pattern="[0-9]{1,2}">
                     <label for="seasons">Número de Temporadas</label>
                 </div>
                 <div>
-                    <input type="text" name="director" placeholder="Diretor" value="<?php echo $thisSerie->getDirector() ?>" class="">
+                    <input type="text" name="director" placeholder="Diretor" value="<?php echo $thisSerie->getDirector() ?>" class="" required pattern="[A-Za-zÀ-Úà-ú ]{2,30}">
                     <label for="director">Diretor</label>
                 </div>
                 <!--fim da sessão -->

@@ -24,22 +24,22 @@
             <h2>Cadastrar Série</h2>
             <form action="../controller/serie.controller.php?op=cadastrar" method="post" name="cadastro-serie">
                 <div>
-                    <input type="text" name="name" placeholder="Nome da série" class="">
+                    <input type="text" name="name" placeholder="Nome da série" class="" pattern="[A-Za-zÀ-Úà-ú ]{2,50}" required>
                 </div>
                 <div>
-                    <input type="year" name="releaseyear" placeholder="Ano de Lançamento" class="">
+                    <input type="year" name="releaseyear" placeholder="Ano de Lançamento" class="" required>
                 </div>
                 <div>
-                    <input type="number" name="episodes" placeholder="Número de Episódios" class="">
+                    <input type="number" name="episodes" placeholder="Número de Episódios" class="" required pattern="[0-9]{1,4}">
                 </div>
                 <div>
-                    <input type="text" name="seasons" placeholder="Número de temporadas" class="">
+                    <input type="text" name="seasons" placeholder="Número de temporadas" class="" required pattern="[0-9]{1,2}">
                 </div>
                 <div>
-                    <input type="text" name="director" placeholder="Diretor" class="">
+                    <input type="text" name="director" placeholder="Diretor" class="" required pattern="[A-Za-zÀ-Úà-ú ]{2,30}">
                 </div>
                 <div>
-                    <input type="email" name="email" placeholder="E-mail" class="">
+                    <input type="email" name="email" placeholder="E-mail" class="" required>
                     <label>Por favor insira o seu e-mail, para que possamos confirmar pra você que a série foi cadastrada </label>
                 </div>
                 <button type="submit" class="button teal">Enviar!</button>

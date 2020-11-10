@@ -18,14 +18,14 @@
                 $email = $_POST['email'];
 
                 sendConfirmationEmail(
-                    $newSerie->getName(), 
-                    $newSerie->getReleaseYear(), 
-                    $newSerie->getEpisodes(), 
-                    $newSerie->getSeasons(), 
-                    $newSerie->getDirector(), 
+                    $newSerie->getName(),
+                    $newSerie->getReleaseYear(),
+                    $newSerie->getEpisodes(),
+                    $newSerie->getSeasons(),
+                    $newSerie->getDirector(),
                     $email
                 );
-                header('location:../view/confirmacadastro.html');
+                header('location:../view/confirmacadastro.php');
             }
         break;
 
@@ -53,10 +53,9 @@
 
         case 'confirmaalteracao':
             $serie = seriesAtribuition();
-            echo $serie;
 
             $SerieDAO = new SerieDAO();
-            echo $SerieDAO->updateSerie($serie);
+            $SerieDAO->updateSerie($serie);
             
             header('location:../view/buscarseries.php');
         break;
@@ -148,7 +147,7 @@
                 "; // Texto da mensagem
         $mail->Body .= " <br>Nome do diretor: " . $director . "
                 "; // Texto da mensagem
-        $mail->Body .= " <br>Obrigada por cadastrar uma série 
+        $mail->Body .= " <br>Obrigada por cadastrar uma série
                 "; // Texto da mensagem
         // ENVIO DO EMAIL
         $enviado = $mail->Send();
