@@ -35,7 +35,6 @@
                 echo $dados;
 
             ?>
-            <!--Criando a estrutura de tabela para mostrar os dados: -->
             <table class="table table-striped table-hover">
                 <thead>
                     <tr>
@@ -51,18 +50,19 @@
                 <tbody>
                     <?php
                     foreach ($series as $serie) {
+                        $idSerie = $serie->getIdSerie();
                         echo "<tr>";
-                        echo "<td>" . $serie->idSerie . "</td>";
-                        echo "<td>" . $serie->name . "</td>";
-                        echo "<td>" . $serie->releaseYear . "</td>";
-                        echo "<td>" . $serie->episodes . "</td>";
-                        echo "<td>" . $serie->seasons . "</td>";
-                        echo "<td>" . $serie->director . "</td>";
+                        echo "<td>" . $serie->getIdSerie() . "</td>";
+                        echo "<td>" . $serie->getName() . "</td>";
+                        echo "<td>" . $serie->getReleaseYear() . "</td>";
+                        echo "<td>" . $serie->getEpisodes() . "</td>";
+                        echo "<td>" . $serie->getSeasons() . "</td>";
+                        echo "<td>" . $serie->getDirector() . "</td>";
                         echo "<td>
                               <a href='#'>
                                 <img src='../img/edita.png' alt='Icone Edição'>
                               </a>&nbsp;&nbsp;
-                              <a href='../controller/serie.controller.php?op=deletar&idserie=$serie->idSerie'>
+                              <a href='../controller/serie.controller.php?op=deletar&idserie=$idSerie'>
                                 <img src='../img/exclui.png' alt='Icone Excluir'>
                               </a>
                             </td>";

@@ -9,7 +9,6 @@
         }
 
         public function __destruct() { }
-        //Função para cadatrar no banco:
 
         public function createSeries($serie) {
             try {
@@ -55,15 +54,15 @@
         public function search($query) {
             try {
                 $stat = $this->conexao->query("SELECT * FROM series ".$query);
+                $array = array();
                 $array = $stat->fetchAll(PDO::FETCH_CLASS,'Series');
                 $this->conexao = null;
                 return $array;
             } catch (PDOException $error) {
                 return "Erro ao buscar serie. ".$error;
             }
-        }//fim da função buscar
+        }
 
-        //Função para alterar contato:
         public function updateSerie($serie) {
             try {
                 $stat = $this->conexao->prepare("UPDATE serie SET name = ?, releseyear = ?, episodes = ?, seasons = ?, director = ? WHERE idserie = ?");
