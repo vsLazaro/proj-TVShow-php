@@ -65,11 +65,14 @@
     }
 
     function verificaSerie($name, $releaseyear, $episodes, $seasons, $director, $email) {
-        if(empty($name) || empty($releaseyear) || empty($episodes) || empty($seasons) || empty($director) || empty($email)) {
+        if(empty($name) || empty($releaseyear) || empty($episodes) || empty($seasons) || empty($director)) {
             return 'Preencha os campos.';
         } else if(! Util::testRegex('/^[A-Za-zÀ-Úà-ú ]{2,50}$/',$name)) {
             return 'Nome da série fora do padrão';
         } else if(! Util::validateEmail(Util::removeSpace(Util::transformLower($email)))) {
+            if (empty($email)) {
+                return 'true';
+            }
             return 'Email fora do padrão';
         } else if(! Util::testRegex('/^[A-Za-zÀ-Úà-ú ]{2,30}$/',$director)) {
             return 'Nome do diretor fora do padrão';
