@@ -57,7 +57,7 @@
                         echo "<td>" . $serie->getSeasons() . "</td>";
                         echo "<td>" . $serie->getDirector() . "</td>";
                         echo "<td>
-                              <a href='../view/alterarserie.php?idserie=$idSerie'>
+                              <a href='../controller/serie.controller.php?op=alterar&idserie=$idSerie'>
                                 <i class='material-icons'>create</i>
                               </a>&nbsp;&nbsp;
                               <a href='../controller/serie.controller.php?op=deletar&idserie=$idSerie'>

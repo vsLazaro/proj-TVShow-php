@@ -10,7 +10,7 @@
             $newSerie = seriesAtribuition();
 
             if( $newSerie == null) {
-                header('location:../view/erro.php');
+                header('location:../404.php');
             } else {
                 //Aqui enviamos para o BANCO:
                 $serieDAO = new SerieDAO();
@@ -43,7 +43,7 @@
             //criamos uma variável para pegar o resultado da busca:
             $series = array();
             //Atribuimos o resultado na busca na variável:
-            $series = $SerieDAO->search($query);
+            $series = $serieDAO->search($query);
             //como iremos passar o resultado da busca com segurança:
             //SESSION com a função SERIALIZE - onde guarda uma string com respostas:
             $_SESSION['series']=serialize($series);
@@ -51,25 +51,28 @@
             header("location:../view/alterarserie.php");
         break;
 
-        case 'confirmaralteracao':
+        case 'confirmaalteracao':
             $serie = seriesAtribuition();
-            $serie->idSerie = $_POST['idserie'];
+            echo $serie;
 
             $SerieDAO = new SerieDAO();
-            $SerieDAO->updateSerie($serie);
-
-            header('location:../view/buscarserie.php');
+            echo $SerieDAO->updateSerie($serie);
+            
+            header('location:../view/buscarseries.php');
         break;
         default:
             header('location:../404.html');
     }
 
     function verificaSerie($name, $releaseyear, $episodes, $seasons, $director, $email) {
-        if(empty($name) || empty($releaseyear) || empty($episodes) || empty($seasons) || empty($director) || empty($email)) {
+        if(empty($name) || empty($releaseyear) || empty($episodes) || empty($seasons) || empty($director)) {
             return 'Preencha os campos.';
         } else if(! Util::testRegex('/^[A-Za-zÀ-Úà-ú ]{2,50}$/',$name)) {
             return 'Nome da série fora do padrão';
         } else if(! Util::validateEmail(Util::removeSpace(Util::transformLower($email)))) {
+            if (empty($email)) {
+                return 'true';
+            }
             return 'Email fora do padrão';
         } else if(! Util::testRegex('/^[A-Za-zÀ-Úà-ú ]{2,30}$/',$director)) {
             return 'Nome do diretor fora do padrão';
@@ -85,6 +88,7 @@
     }
 
     function seriesAtribuition() {
+        $idserie = $_POST['idserie'];
         $name = $_POST['name'];
         $email = $_POST['email'];
         $releaseyear = $_POST['releaseyear'];
@@ -99,6 +103,7 @@
             echo $verification;
             $serie = null;
         } else {
+            $serie->setIdSerie($idserie);
             $serie->setName($name);
             $serie->setReleaseyear($releaseyear);
             $serie->setEpisodes($episodes);
