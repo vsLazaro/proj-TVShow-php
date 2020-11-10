@@ -23,22 +23,22 @@
         <section class="container">
             <h2>Cadastrar Série</h2>
             <form action="../controller/serie.controller.php?op=cadastrar" method="post" name="cadastro-serie">
-                <div class="form-group">
+                <div>
                     <input type="text" name="name" placeholder="Nome da série" class="">
                 </div>
-                <div class="form-group">
+                <div>
                     <input type="year" name="releaseyear" placeholder="Ano de Lançamento" class="">
                 </div>
-                <div class="form-group">
+                <div>
                     <input type="number" name="episodes" placeholder="Número de Episódios" class="">
                 </div>
-                <div class="form-group">
+                <div>
                     <input type="text" name="seasons" placeholder="Número de temporadas" class="">
                 </div>
-                <div class="form-group">
+                <div>
                     <input type="text" name="director" placeholder="Diretor" class="">
                 </div>
-                <div class="form-group">
+                <div>
                     <input type="email" name="email" placeholder="E-mail" class="">
                     <label>Por favor insira o seu e-mail, para que possamos confirmar pra você que a série foi cadastrada </label>
                 </div>

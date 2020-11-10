@@ -55,7 +55,7 @@
             try {
                 $stat = $this->conexao->query("SELECT * FROM series ".$query);
                 $array = array();
-                $array = $stat->fetchAll(PDO::FETCH_CLASS,'Series');
+                $array = $stat->fetchAll(PDO::FETCH_CLASS, 'Serie');
                 $this->conexao = null;
                 return $array;
             } catch (PDOException $error) {

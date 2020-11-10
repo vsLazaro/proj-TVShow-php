@@ -10,7 +10,7 @@
             $newSerie = seriesAtribuition();
 
             if( $newSerie == null) {
-                header('location:../view/erro.php');
+                header('location:../404.php');
             } else {
                 //Aqui enviamos para o BANCO:
                 $serieDAO = new SerieDAO();
@@ -43,7 +43,7 @@
             //criamos uma variável para pegar o resultado da busca:
             $series = array();
             //Atribuimos o resultado na busca na variável:
-            $series = $SerieDAO->search($query);
+            $series = $serieDAO->search($query);
             //como iremos passar o resultado da busca com segurança:
             //SESSION com a função SERIALIZE - onde guarda uma string com respostas:
             $_SESSION['series']=serialize($series);
