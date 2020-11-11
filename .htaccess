@@ -1,6 +1,10 @@
 ErrorDocument 404 /404.html
 
 RewriteEngine On
+
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^(.*)$ https://oraza.com.br/home$1 [R,L]
+
 RewriteRule ^cadastrar/?$ /view/cadastrarserie.php [NC,L]
 RewriteRule ^series/?$ /view/buscarseries.php [NC,L]
 RewriteRule ^alterar/?$ /view/alterarserie.php [NC,L]
