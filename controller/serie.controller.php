@@ -42,6 +42,8 @@
                         $email
                     );
                     header('location:../sucesso');
+                } else {
+                    header('location:../recaptcha-invalido');
                 }
             }
 
@@ -70,12 +72,31 @@
         break;
 
         case 'confirmaalteracao':
-            $serie = seriesAtribuition();
+        // definir a chave secreta
+            $secret = "6LdJkOEZAAAAAAX-7x9ZbbSHt-VnB56dpaOE2dla";
 
-            $SerieDAO = new SerieDAO();
-            $SerieDAO->updateSerie($serie);
+            // verificar a chave secreta
+            $response = null;
+            $reCaptcha = new ReCaptcha($secret);
 
-            header('location:../series');
+            if ($_POST["g-recaptcha-response"]) {
+                $response = $reCaptcha->verifyResponse($_SERVER["REMOTE_ADDR"], $_POST["g-recaptcha-response"]);
+            }
+
+            // deu tudo certo?
+            if ($response != null && $response->success) {
+                $serie = seriesAtribuition();
+
+                $SerieDAO = new SerieDAO();
+                $SerieDAO->updateSerie($serie);
+
+                header('location:../series');
+            } else {
+                header('location:../recaptcha-invalido');
+            }
+
+
+
         break;
         default:
             header('location:../404.html');
