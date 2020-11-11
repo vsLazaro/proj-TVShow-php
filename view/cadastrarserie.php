@@ -13,9 +13,9 @@
         <h1>Minhas Séries</h1>
         <nav>
             <ul>
-                <li><a href="../index.php">Home</a></li>
-                <li><a href="./buscarseries.php">Buscar</a></li>
-                <li><a href="./cadastrarserie.php">Cadastrar série</a></li>
+                <li><a href="../home">Home</a></li>
+                <li><a href="../series">Buscar</a></li>
+                <li><a href="../cadastrar">Cadastrar série</a></li>
             </ul>
         </nav>
     </header>

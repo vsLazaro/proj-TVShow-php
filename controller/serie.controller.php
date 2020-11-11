@@ -25,14 +25,14 @@
                     $newSerie->getDirector(),
                     $email
                 );
-                header('location:../view/confirmacadastro.php');
+                header('location:../sucesso');
             }
         break;
 
         case 'deletar':
             $serieDAO = new SerieDAO();
             $serieDAO->deleteSeries($_REQUEST['idserie']);
-            header('location:../view/buscarseries.php');
+            header('location:../series');
         break;
 
         case 'alterar':
@@ -48,7 +48,7 @@
             //SESSION com a função SERIALIZE - onde guarda uma string com respostas:
             $_SESSION['series']=serialize($series);
             //direciono para a página que terá o alterar:
-            header("location:../view/alterarserie.php");
+            header("location:../alterar");
         break;
 
         case 'confirmaalteracao':
@@ -56,8 +56,8 @@
 
             $SerieDAO = new SerieDAO();
             $SerieDAO->updateSerie($serie);
-            
-            header('location:../view/buscarseries.php');
+
+            header('location:../series');
         break;
         default:
             header('location:../404.html');
