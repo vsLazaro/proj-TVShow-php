@@ -42,9 +42,9 @@
                         $email
                     );
                     header('location:../sucesso');
-                } else {
-                    header('location:../recaptcha-invalido');
                 }
+            } else {
+                header('location:../recaptcha-invalido');
             }
 
         break;
