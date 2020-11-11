@@ -1,23 +1,3 @@
-<?php
-
-// incluir a funcionalidade do recaptcha
-require_once "../util/recaptchalib.php";
-
-// definir a chave secreta
-$secret = "6LdJkOEZAAAAAAX-7x9ZbbSHt-VnB56dpaOE2dla";
-
-// verificar a chave secreta
-$response = null;
-$reCaptcha = new ReCaptcha($secret);
-
-if ($_POST["g-recaptcha-response"]) {
-    $response = $reCaptcha->verifyResponse($_SERVER["REMOTE_ADDR"], $_POST["g-recaptcha-response"]);
-}
-
-// deu tudo certo?
-if ($response != null && $response->success) {
-    // processar o formulario
-} ?>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -63,7 +43,9 @@ if ($response != null && $response->success) {
                     <input type="email" name="email" placeholder="E-mail" class="" required>
                     <label>Por favor insira o seu e-mail, para que possamos confirmar pra você que a série foi cadastrada </label>
                 </div>
-                <div class="g-recaptcha" data-sitekey="6LdJkOEZAAAAAGYkwByYq7F-6a9Ga6pqxwVY_JYx"></div>
+                <div>
+                    <div class="g-recaptcha" data-sitekey="6LdJkOEZAAAAAGYkwByYq7F-6a9Ga6pqxwVY_JYx"></div>
+                </div>
                 <button type="submit" class="button teal">Enviar!</button>
             </form>
         </section>

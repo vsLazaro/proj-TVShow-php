@@ -4,29 +4,47 @@
     require_once '../util/PHPMailerAutoload.php';
     include '../model/serie.class.php';
     include '../dao/seriedao.class.php';
+    require_once "../util/recaptchalib.php";
 
     switch($_GET['op']) {
         case 'cadastrar':
-            $newSerie = seriesAtribuition();
 
-            if( $newSerie == null) {
-                header('location:../404.php');
-            } else {
-                //Aqui enviamos para o BANCO:
-                $serieDAO = new SerieDAO();
-                echo $serieDAO->createSeries($newSerie);
-                $email = $_POST['email'];
 
-                sendConfirmationEmail(
-                    $newSerie->getName(),
-                    $newSerie->getReleaseYear(),
-                    $newSerie->getEpisodes(),
-                    $newSerie->getSeasons(),
-                    $newSerie->getDirector(),
-                    $email
-                );
-                header('location:../sucesso');
+            // definir a chave secreta
+            $secret = "6LdJkOEZAAAAAAX-7x9ZbbSHt-VnB56dpaOE2dla";
+
+            // verificar a chave secreta
+            $response = null;
+            $reCaptcha = new ReCaptcha($secret);
+
+            if ($_POST["g-recaptcha-response"]) {
+                $response = $reCaptcha->verifyResponse($_SERVER["REMOTE_ADDR"], $_POST["g-recaptcha-response"]);
             }
+
+            // deu tudo certo?
+            if ($response != null && $response->success) {
+                $newSerie = seriesAtribuition();
+
+                if( $newSerie == null) {
+                    header('location:../404.php');
+                } else {
+                    //Aqui enviamos para o BANCO:
+                    $serieDAO = new SerieDAO();
+                    echo $serieDAO->createSeries($newSerie);
+                    $email = $_POST['email'];
+
+                    sendConfirmationEmail(
+                        $newSerie->getName(),
+                        $newSerie->getReleaseYear(),
+                        $newSerie->getEpisodes(),
+                        $newSerie->getSeasons(),
+                        $newSerie->getDirector(),
+                        $email
+                    );
+                    header('location:../sucesso');
+                }
+            }
+
         break;
 
         case 'deletar':
