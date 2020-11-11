@@ -1,5 +1,24 @@
 <?php
     session_start();
+
+    // incluir a funcionalidade do recaptcha
+    require_once "../util/recaptchalib.php";
+
+    // definir a chave secreta
+    $secret = "6LdJkOEZAAAAAAX-7x9ZbbSHt-VnB56dpaOE2dla";
+
+    // verificar a chave secreta
+    $response = null;
+    $reCaptcha = new ReCaptcha($secret);
+
+    if ($_POST["g-recaptcha-response"]) {
+        $response = $reCaptcha->verifyResponse($_SERVER["REMOTE_ADDR"], $_POST["g-recaptcha-response"]);
+    }
+
+    // deu tudo certo?
+    if ($response != null && $response->success) {
+        // processar o formulario
+    }
 ?>
 <html lang="pt-br">
 
@@ -10,6 +29,7 @@
     <title>Minhas Séries</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src='https://www.google.com/recaptcha/api.js?hl=pt-BR'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
 
@@ -65,6 +85,7 @@
                     <input type="text" name="director" placeholder="Diretor" value="<?php echo $thisSerie->getDirector() ?>" class="" required pattern="[A-Za-zÀ-Úà-ú ]{2,30}">
                     <label for="director">Diretor</label>
                 </div>
+                <div class="g-recaptcha" data-sitekey="6LdJkOEZAAAAAGYkwByYq7F-6a9Ga6pqxwVY_JYx"></div>
                 <!--fim da sessão -->
                 <?php
                     unset($_SESSION['series']);
