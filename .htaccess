@@ -1,1 +1,7 @@
 ErrorDocument 404 /404.html
+
+RewriteEngine On
+RewriteRule ^cadastrar/?$ /view/cadastrarserie.php [NC,L]
+RewriteRule ^series/?$ /view/buscarseries.php [NC,L]
+RewriteRule ^alterar/?$ /view/alterarserie.php [NC,L]
+RewriteRule ^home/?$ /index.php [NC,L]
